@@ -19,6 +19,13 @@ app.get('/words', (req, res) => {
 	const words = randWords(wordList);
 	res.json({ words });
 });
+
+app.post('/rank', (req, res) => {
+	const archivedScore = req.body.score;
+	const scoresBlow = scoresList.filter((score) => score < archivedScore);
+	res.json({ rank: Math.floor((scoresBlow.length / scoresList.length) * 100) });
+});
+
 app.listen(5000, () => {
 	console.log('app is running at http://localhost:5000 ');
 });
