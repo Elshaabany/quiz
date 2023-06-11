@@ -1,0 +1,31 @@
+{
+  "name": "quiz-server",
+  "version": "1.0.0",
+  "description": "back-end for quiz application",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elshaabany/quiz.git"
+  },
+  "author": "Eslam Elshaabany",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elshaabany/quiz/issues"
+  },
+  "homepage": "https://github.com/Elshaabany/quiz#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8"
+  }
+}
