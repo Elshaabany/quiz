@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 const choices = ["noun", "adverb", "adjective", "verb"];
 
-const Practice = ({ setQuizCompleted, score, setScore }) => {
+const Practice = ({ setQuizCompleted, score, setScore, quizRestarted }) => {
   const [words, setWords] = useState([]);
   const [wordIndex, setWordIndex] = useState(0);
   const [selectedChoice, setSelectedChoice] = useState("");
@@ -17,6 +17,12 @@ const Practice = ({ setQuizCompleted, score, setScore }) => {
       }
     })();
   }, []);
+
+  useEffect(() => {
+    setWords([]);
+    setWordIndex(0);
+    setSelectedChoice("");
+  }, [quizRestarted]);
 
   const currentWord = words[wordIndex];
 

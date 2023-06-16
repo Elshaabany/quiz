@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Rank({ score }) {
+function Rank({ score, restartQuiz }) {
   const [rank, setRank] = useState("");
   useEffect(() => {
     (async () => {
@@ -26,7 +26,7 @@ function Rank({ score }) {
     <>
       <h2>Completed!</h2>
       <p>your Rank: {rank}</p>
-      <button>Try Again</button>
+      <button onClick={restartQuiz}>Try Again</button>
     </>
   );
 }
