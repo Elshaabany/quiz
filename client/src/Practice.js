@@ -65,7 +65,7 @@ const Practice = ({
             onClick={() => handleChoice(choice)}
             disabled={selectedChoice !== ""}
           >
-            {choice}
+            {choice.charAt(0).toUpperCase() + choice.slice(1)}{" "}
           </button>
         ))}
       </div>
