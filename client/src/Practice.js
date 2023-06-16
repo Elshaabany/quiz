@@ -33,6 +33,7 @@ const Practice = ({
 
   setWordsLength(words.length);
   const currentWord = words[wordIndex];
+  const progress = ((wordIndex + 1) / wordsLength) * 100;
 
   function handleChoice(choice) {
     setSelectedChoice(choice);
@@ -60,6 +61,16 @@ const Practice = ({
   return (
     <>
       <div>
+        <div className="progress">
+          <div
+            className="progress-bar"
+            role="progressbar"
+            style={{ width: `${progress}%` }}
+            aria-valuenow={progress}
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
         <p>score: {score}</p>
       </div>
       <div className="">
