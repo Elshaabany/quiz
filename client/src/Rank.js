@@ -20,13 +20,20 @@ function Rank({ score, restartQuiz, wordsLength }) {
     })();
   }, [score, wordsLength]);
 
-  if (!rank) return <h2>loading...</h2>;
+  if (!rank)
+    return (
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    );
 
   return (
     <>
       <h2>Completed!</h2>
       <p>your Rank: {rank}</p>
-      <button onClick={restartQuiz}>Try Again</button>
+      <button className="btn btn-success" onClick={restartQuiz}>
+        Try Again
+      </button>
     </>
   );
 }

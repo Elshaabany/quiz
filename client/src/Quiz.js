@@ -16,7 +16,7 @@ function Quiz() {
   }
 
   return (
-    <div>
+    <div className="container text-center ">
       <h1>Quiz</h1>
       {quizCompleted ? (
         <Rank

@@ -50,29 +50,39 @@ const Practice = ({
     }
   }
 
-  if (!currentWord) return <h2>loading...</h2>;
+  if (!currentWord)
+    return (
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    );
 
   return (
     <>
       <div>
         <p>score: {score}</p>
       </div>
-      <div>
+      <div className="">
         <h2>{currentWord.word}</h2>
-        {choices.map((choice) => (
-          <button
-            key={choice}
-            onClick={() => handleChoice(choice)}
-            disabled={selectedChoice !== ""}
-          >
-            {choice.charAt(0).toUpperCase() + choice.slice(1)}{" "}
-          </button>
-        ))}
+        <div className="btn-group mb-3">
+          {choices.map((choice) => (
+            <button
+              className="btn btn-primary me-2"
+              key={choice}
+              onClick={() => handleChoice(choice)}
+              disabled={selectedChoice !== ""}
+            >
+              {choice.charAt(0).toUpperCase() + choice.slice(1)}{" "}
+            </button>
+          ))}
+        </div>
       </div>
       {selectedChoice && (
         <div>
           {currentWord.pos === selectedChoice ? <p>Correct!</p> : <p>Wrong!</p>}
-          <button onClick={handleNextQuestion}>Next</button>
+          <button className="btn btn-secondary" onClick={handleNextQuestion}>
+            Next
+          </button>
         </div>
       )}
     </>
