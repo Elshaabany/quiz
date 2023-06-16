@@ -4,6 +4,8 @@ const choices = ["noun", "adverb", "adjective", "verb"];
 const Practice = () => {
   const [words, setWords] = useState([]);
   const [wordIndex, setWordIndex] = useState(0);
+  const [selectedChoice, setSelectedChoice] = useState("");
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -19,14 +21,28 @@ const Practice = () => {
 
   const currentWord = words[wordIndex];
 
+  function handleChoice(choice) {
+    setSelectedChoice(choice);
+    if (choice === currentWord.pos) {
+      setScore(score + 1);
+    }
+  }
+
   if (!currentWord) return <h2>loading...</h2>;
 
   return (
     <>
-      <h2>{currentWord.word}</h2>
-      {choices.map((choice) => (
-        <button>{choice}</button>
-      ))}
+      <div>
+        <p>score: {score}</p>
+      </div>
+      <div>
+        <h2>{currentWord.word}</h2>
+        {choices.map((choice) => (
+          <button key={choice} onClick={() => handleChoice(choice)}>
+            {choice}
+          </button>
+        ))}
+      </div>
     </>
   );
 };
