@@ -60,7 +60,11 @@ const Practice = ({
       <div>
         <h2>{currentWord.word}</h2>
         {choices.map((choice) => (
-          <button key={choice} onClick={() => handleChoice(choice)}>
+          <button
+            key={choice}
+            onClick={() => handleChoice(choice)}
+            disabled={selectedChoice !== ""}
+          >
             {choice}
           </button>
         ))}
