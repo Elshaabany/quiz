@@ -59,7 +59,7 @@ const Practice = ({
       <div>
         <div className="progress">
           <div
-            className="progress-bar"
+            className="progress-bar progress-bar-striped progress-bar-animated bg-info"
             role="progressbar"
             style={{ width: `${progress}%` }}
             aria-valuenow={progress}
@@ -69,7 +69,7 @@ const Practice = ({
         </div>
         <p>score: {score}</p>
       </div>
-      <div className="">
+      <div>
         <h2>{currentWord.word}</h2>
         <div className="btn-group mb-3">
           {choices.map((choice) => (

@@ -16,24 +16,32 @@ function Quiz() {
   }
 
   return (
-    <div className="container text-center ">
-      <h1>Quiz</h1>
-      {quizCompleted ? (
-        <Rank
-          score={score}
-          restartQuiz={restartQuiz}
-          wordsLength={wordsLength}
-        />
-      ) : (
-        <Practice
-          setQuizCompleted={setQuizCompleted}
-          score={score}
-          setScore={setScore}
-          quizRestarted={quizRestarted}
-          wordsLength={wordsLength}
-          setWordsLength={setWordsLength}
-        />
-      )}
+    <div
+      className="container d-flex flex-column justify-content-center align-items-center text-center "
+      style={{ minHeight: "100vh" }}
+    >
+      <div
+        className="w-50 p-5 border border-primary-subtle rounded bg-white"
+        style={{ minHeight: "400px" }}
+      >
+        <h1>Quiz</h1>
+        {quizCompleted ? (
+          <Rank
+            score={score}
+            restartQuiz={restartQuiz}
+            wordsLength={wordsLength}
+          />
+        ) : (
+          <Practice
+            setQuizCompleted={setQuizCompleted}
+            score={score}
+            setScore={setScore}
+            quizRestarted={quizRestarted}
+            wordsLength={wordsLength}
+            setWordsLength={setWordsLength}
+          />
+        )}
+      </div>
     </div>
   );
 }
