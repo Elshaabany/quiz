@@ -1,9 +1,17 @@
+import { useState } from "react";
 import Practice from "./Practice";
+
 function Quiz() {
+  const [quizCompleted, setQuizCompleted] = useState(false);
+
   return (
     <div>
       <h1>Quiz</h1>
-      <Practice />
+      {quizCompleted ? (
+        <p>rank screen</p>
+      ) : (
+        <Practice setQuizState={setQuizCompleted} />
+      )}
     </div>
   );
 }

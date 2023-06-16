@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 const choices = ["noun", "adverb", "adjective", "verb"];
 
-const Practice = () => {
+const Practice = ({ setQuizState }) => {
   const [words, setWords] = useState([]);
   const [wordIndex, setWordIndex] = useState(0);
   const [selectedChoice, setSelectedChoice] = useState("");
@@ -32,6 +32,8 @@ const Practice = () => {
     if (wordIndex + 1 < words.length) {
       setWordIndex(wordIndex + 1);
       setSelectedChoice("");
+    } else {
+      setQuizState(true);
     }
   }
 
