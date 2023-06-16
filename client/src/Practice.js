@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Loading from "./loading";
 const choices = ["noun", "adverb", "adjective", "verb"];
 
 const Practice = ({
@@ -51,12 +52,7 @@ const Practice = ({
     }
   }
 
-  if (!currentWord)
-    return (
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    );
+  if (!currentWord) return <Loading />;
 
   return (
     <>

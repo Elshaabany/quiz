@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Loading from "./loading";
 
 function Rank({ score, restartQuiz, wordsLength }) {
   const [rank, setRank] = useState("");
@@ -20,12 +21,7 @@ function Rank({ score, restartQuiz, wordsLength }) {
     })();
   }, [score, wordsLength]);
 
-  if (!rank)
-    return (
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    );
+  if (!rank) return <Loading />;
 
   return (
     <>
