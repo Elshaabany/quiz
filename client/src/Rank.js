@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-function Rank({ score, restartQuiz }) {
+function Rank({ score, restartQuiz, wordsLength }) {
   const [rank, setRank] = useState("");
   useEffect(() => {
     (async () => {
       try {
         const response = await fetch("http://localhost:5000/rank", {
           method: "POST",
-          body: JSON.stringify({ score: (+score / 10) * 100 }),
+          body: JSON.stringify({ score: (+score / wordsLength) * 100 }),
           headers: {
             "Content-Type": "application/json",
           },
@@ -18,7 +18,7 @@ function Rank({ score, restartQuiz }) {
         console.log(error);
       }
     })();
-  }, [score]);
+  }, [score, wordsLength]);
 
   if (!rank) return <h2>loading...</h2>;
 

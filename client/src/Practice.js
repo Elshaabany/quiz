@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 const choices = ["noun", "adverb", "adjective", "verb"];
 
-const Practice = ({ setQuizCompleted, score, setScore, quizRestarted }) => {
+const Practice = ({
+  setQuizCompleted,
+  score,
+  setScore,
+  quizRestarted,
+  wordsLength,
+  setWordsLength,
+}) => {
   const [words, setWords] = useState([]);
   const [wordIndex, setWordIndex] = useState(0);
   const [selectedChoice, setSelectedChoice] = useState("");
@@ -24,6 +31,7 @@ const Practice = ({ setQuizCompleted, score, setScore, quizRestarted }) => {
     setSelectedChoice("");
   }, [quizRestarted]);
 
+  setWordsLength(words.length);
   const currentWord = words[wordIndex];
 
   function handleChoice(choice) {
@@ -34,7 +42,7 @@ const Practice = ({ setQuizCompleted, score, setScore, quizRestarted }) => {
   }
 
   function handleNextQuestion() {
-    if (wordIndex + 1 < words.length) {
+    if (wordIndex + 1 < wordsLength) {
       setWordIndex(wordIndex + 1);
       setSelectedChoice("");
     } else {
