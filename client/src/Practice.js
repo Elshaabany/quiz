@@ -28,6 +28,13 @@ const Practice = () => {
     }
   }
 
+  function handleNextQuestion() {
+    if (wordIndex + 1 < words.length) {
+      setWordIndex(wordIndex + 1);
+      setSelectedChoice("");
+    }
+  }
+
   if (!currentWord) return <h2>loading...</h2>;
 
   return (
@@ -43,6 +50,12 @@ const Practice = () => {
           </button>
         ))}
       </div>
+      {selectedChoice && (
+        <div>
+          {currentWord.pos === selectedChoice ? <p>Correct!</p> : <p>Wrong!</p>}
+          <button onClick={handleNextQuestion}>Next</button>
+        </div>
+      )}
     </>
   );
 };
