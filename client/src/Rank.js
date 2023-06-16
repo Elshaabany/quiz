@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import Loading from "./loading";
+import Error from "./error";
 
 function Rank({ score, restartQuiz, wordsLength }) {
   const [rank, setRank] = useState("");
+  const [error, setError] = useState("");
+
   useEffect(() => {
     (async () => {
       try {
@@ -16,11 +19,12 @@ function Rank({ score, restartQuiz, wordsLength }) {
         const data = await response.json();
         setRank(data.rank);
       } catch (error) {
-        console.log(error);
+        setError("Internal server Error");
       }
     })();
   }, [score, wordsLength]);
 
+  if (error) return <Error errorText={"Internal server Error"} />;
   if (!rank) return <Loading />;
 
   return (

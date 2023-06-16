@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Loading from "./loading";
+import Error from "./error";
+
 const choices = ["noun", "adverb", "adjective", "verb"];
 
 const Practice = ({
@@ -13,6 +15,7 @@ const Practice = ({
   const [words, setWords] = useState([]);
   const [wordIndex, setWordIndex] = useState(0);
   const [selectedChoice, setSelectedChoice] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -21,7 +24,7 @@ const Practice = ({
         const data = await response.json();
         setWords(data.words);
       } catch (error) {
-        console.log(error);
+        setError(error);
       }
     })();
   }, []);
@@ -51,7 +54,7 @@ const Practice = ({
       setQuizCompleted(true);
     }
   }
-
+  if (error) return <Error errorText={"Internal server Error"} />;
   if (!currentWord) return <Loading />;
 
   return (
