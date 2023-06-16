@@ -1,5 +1,11 @@
+import Practice from "./Practice";
 function Quiz() {
-  return <h1>Hello wrold</h1>;
+  return (
+    <div>
+      <h1>Quiz</h1>
+      <Practice />
+    </div>
+  );
 }
 
 export default Quiz;
